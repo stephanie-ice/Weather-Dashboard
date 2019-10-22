@@ -1,0 +1,1 @@
+console.log ("The external JS is linked.")

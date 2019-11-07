@@ -9,6 +9,19 @@ $.getJSON("http://api.openweathermap.org/data/2.5/weather?q=dallas&units=imperia
         var icon = ("http://openweathermap.org/img/wn/" + data.weather[0].icon + "@2x.png");
         $(".icon").attr("src", icon);
         console.log(icon);
+
+        var city = (data.name);
+        $(".city").append(city);
+        console.log(city)
+
+        var temp = (data.main.temp);
+        $(".temp").append(temp);
+        console.log(temp);
+
+        var humidity = (data.main.humidity);
+        $(".humidity").append(humidity);
+        console.log(humidity);
     });
+
 
 });

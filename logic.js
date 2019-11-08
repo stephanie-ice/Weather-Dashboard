@@ -4,13 +4,16 @@ console.log("The URL is " + "http://api.openweathermap.org/data/2.5/weather?q=lo
 $(document).ready(function () {
 
     /*Today's date, compliments of moment.js*/
+    /*so UVindex has the current date of the location searched. perhaps I should 
+    pull from that data instead of moment.js, which will produce the date of the
+    location of the local computer, not the search location*/
         function today () {
-        var date = (moment().format("MMM/Do/YYYY"));
-        $(".date").append(date);
-        console.log(date);
+            var date = (moment().format("MMM/Do/YYYY"));
+            $(".date").append(date);
+            console.log(date);
             };
         today ();
-    /*Need API for Today's City, Temp, Icon, etc.*/
+    /*API for Today's City, Temp, Icon, etc.*/
     /*currently the URL is specific to Dallas and needs to incorporate a var*/
     $.getJSON("http://api.openweathermap.org/data/2.5/weather?q=dallas&units=imperial&appid=31e3da9a00a13c6735af3d6b9e899478",
         function (data) {
@@ -42,6 +45,16 @@ $(document).ready(function () {
     /*Need an API for the 5 Day forecast*/
 
     /*Need an API for the UV INdex*/
+
+    $.getJSON("http://api.openweathermap.org/data/2.5/uvi?appid=31e3da9a00a13c6735af3d6b9e899478&lat=32.78&lon=-96.8",
+        function (uvData) {
+            console.log(uvData);
+
+            var uvIndex = (uvData.value);
+            $(".uvIndex").append(uvIndex);
+            console.log(uvIndex);
+        }
+    );
 
     /*Need Search functionality, and search needs to feed the orginial URL for location*/
 

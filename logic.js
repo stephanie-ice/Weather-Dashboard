@@ -47,12 +47,41 @@ $(document).ready(function () {
         function (forecastData) {
             console.log(forecastData);
 
-            var day1temp = (forecastData.list[0].main.temp)
+        function day1 (forecastData) {    
+            var day1date = (forecastData.list[1].dt_txt)
+            $(".day1date").append(day1date);
+            console.log(day1date)
+
+            var day1icon = ("http://openweathermap.org/img/wn/" + forecastData.list[1].weather[0].icon + "@2x.png");
+            $(".day1icon").attr("src", day1icon);
+            console.log(day1icon);
+
+            var day1temp = (forecastData.list[1].main.temp)
             $(".day1temp").append(day1temp);
             console.log(day1temp);
 
-        }
-    );
+            var day1humidity = (forecastData.list[1].main.humidity)
+            $(".day1humidity").append(day1humidity);
+            console.log(day1humidity);
+        };
+        day1(forecastData)
+
+        function day2 (forecastData) {
+            var day2date = (forecastData.list[2].dt_text)
+            $(".day2date").append(day2date);
+            console.log(day2date)
+
+            var day2temp = (forecastData.list[2].main.temp)
+            $(".day2temp").append(day2temp);
+            console.log(day2temp);
+
+            var day2icon = ("http://openweathermap.org/img/wn/" + forecastData.list[2].weather[0].icon + "@2x.png");
+            $(".day2icon").attr("src", day2icon);
+            console.log(day2icon);
+        };
+        day2(forecastData)
+
+    });
     
     
     /*Need an API for the UV INdex*/

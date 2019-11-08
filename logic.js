@@ -43,7 +43,18 @@ $(document).ready(function () {
 
 
     /*Need an API for the 5 Day forecast*/
+    $.getJSON("http://api.openweathermap.org/data/2.5/forecast?q=dallas&units=imperial&appid=31e3da9a00a13c6735af3d6b9e899478",
+        function (forecastData) {
+            console.log(forecastData);
 
+            var day1temp = (forecastData.list[0].main.temp)
+            $(".day1temp").append(day1temp);
+            console.log(day1temp);
+
+        }
+    );
+    
+    
     /*Need an API for the UV INdex*/
 
     $.getJSON("http://api.openweathermap.org/data/2.5/uvi?appid=31e3da9a00a13c6735af3d6b9e899478&lat=32.78&lon=-96.8",

@@ -1,5 +1,3 @@
-console.log("The external JS is linked.")
-console.log("The URL is " + "http://api.openweathermap.org/data/2.5/weather?q=losangeles&appid=31e3da9a00a13c6735af3d6b9e899478")
 
 $(document).ready(function () {
 
@@ -21,23 +19,19 @@ $(document).ready(function () {
 
             var icon = ("http://openweathermap.org/img/wn/" + data.weather[0].icon + "@2x.png");
             $(".icon").attr("src", icon);
-            console.log(icon);
 
             var city = (data.name);
             $(".city").append(city);
-            console.log(city)
 
             var temp = (data.main.temp + " F");
             $(".temp").append(temp);
-            console.log(temp);
 
             var humidity = (data.main.humidity + "%");
             $(".humidity").append(humidity);
-            console.log(humidity);
 
             var windSpeed = (data.wind.speed + " mph");
             $(".windSpeed").append(windSpeed);
-            console.log(windSpeed);
+           
         });
 
 
@@ -48,39 +42,99 @@ $(document).ready(function () {
             console.log(forecastData);
 
         function day1 (forecastData) {    
-            var day1date = (forecastData.list[1].dt_txt)
+            var day1date = (forecastData.list[4].dt_txt)
             $(".day1date").append(day1date);
             console.log(day1date)
 
-            var day1icon = ("http://openweathermap.org/img/wn/" + forecastData.list[1].weather[0].icon + "@2x.png");
+            var day1icon = ("http://openweathermap.org/img/wn/" + forecastData.list[4].weather[0].icon + "@2x.png");
             $(".day1icon").attr("src", day1icon);
             console.log(day1icon);
 
-            var day1temp = (forecastData.list[1].main.temp)
+            var day1temp = (forecastData.list[4].main.temp)
             $(".day1temp").append(day1temp);
             console.log(day1temp);
 
-            var day1humidity = (forecastData.list[1].main.humidity)
+            var day1humidity = (forecastData.list[4].main.humidity)
             $(".day1humidity").append(day1humidity);
             console.log(day1humidity);
         };
         day1(forecastData)
 
         function day2 (forecastData) {
-            var day2date = (forecastData.list[2].dt_text)
+            var day2date = (forecastData.list[12].dt_txt)
             $(".day2date").append(day2date);
             console.log(day2date)
 
-            var day2temp = (forecastData.list[2].main.temp)
+            var day2temp = (forecastData.list[12].main.temp)
             $(".day2temp").append(day2temp);
             console.log(day2temp);
 
-            var day2icon = ("http://openweathermap.org/img/wn/" + forecastData.list[2].weather[0].icon + "@2x.png");
+            var day2icon = ("http://openweathermap.org/img/wn/" + forecastData.list[12].weather[0].icon + "@2x.png");
             $(".day2icon").attr("src", day2icon);
             console.log(day2icon);
+
+            var day2humidity = (forecastData.list[12].main.humidity)
+            $(".day2humidity").append(day2humidity);
+            console.log(day2humidity);
         };
         day2(forecastData)
 
+        function day3 (forecastData) {
+            var day3date = (forecastData.list[20].dt_txt)
+            $(".day3date").append(day3date);
+            console.log(day3date)
+
+            var day3temp = (forecastData.list[20].main.temp)
+            $(".day3temp").append(day3temp);
+            console.log(day3temp);
+
+            var day3icon = ("http://openweathermap.org/img/wn/" + forecastData.list[20].weather[0].icon + "@2x.png");
+            $(".day3icon").attr("src", day3icon);
+            console.log(day3icon);
+
+            var day3humidity = (forecastData.list[20].main.humidity)
+            $(".day3humidity").append(day3humidity);
+            console.log(day3humidity);
+        };    
+        day3(forecastData)
+
+        function day4 (forecastData) {
+            var day4date = (forecastData.list[28].dt_txt)
+            $(".day4date").append(day4date);
+            console.log(day4date)
+
+            var day4temp = (forecastData.list[28].main.temp)
+            $(".day4temp").append(day4temp);
+            console.log(day4temp);
+
+            var day4icon = ("http://openweathermap.org/img/wn/" + forecastData.list[28].weather[0].icon + "@2x.png");
+            $(".day4icon").attr("src", day4icon);
+            console.log(day4icon);
+
+            var day4humidity = (forecastData.list[28].main.humidity)
+            $(".day4humidity").append(day4humidity);
+            console.log(day4humidity);
+        };    
+        day4(forecastData)
+
+        function day5 (forecastData) {
+            var day5date = (forecastData.list[36].dt_txt)
+            $(".day5date").append(day5date);
+            console.log(day5date)
+
+            var day5temp = (forecastData.list[36].main.temp)
+            $(".day5temp").append(day5temp);
+            console.log(day5temp);
+
+            var day5icon = ("http://openweathermap.org/img/wn/" + forecastData.list[36].weather[0].icon + "@2x.png");
+            $(".day5icon").attr("src", day5icon);
+            console.log(day5icon);
+
+            var day5humidity = (forecastData.list[36].main.humidity)
+            $(".day5humidity").append(day5humidity);
+            console.log(day5humidity);
+        };    
+        day5(forecastData)
     });
     
     

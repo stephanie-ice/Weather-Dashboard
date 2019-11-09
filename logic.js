@@ -11,33 +11,33 @@ $(document).ready(function () {
         console.log(date);
     };
     today();
+
     /*Function for grabbing City from Search Bar*/
-    var input = $("#search").val()
-    console.log(input)   
+    var input = "los+angeles"
     /*click event that responds when user enters text and clicks on search Btn*/
     
     $("#submit").on("click", function (event) {
-        
         event.preventDefault();
+
+        var input = $("#search").val()
+        console.log(input)   
         /*Format the input by replacing spaces with + */
         if (input !== null) {
             input.split(' ').join('+');
             console.log(input)
             localStorage.setItem("city", input);
-        } else {
-            input= "los+angeles"
-            localStorage.setItem("city", input)
         };
+
         localStorage.getItem("city", input)
         console.log(input);
     });
     
-    /*this become a var I can use for the API call*/
-    var place =input
+    /*this becomes a var I can use for the API call*/
+    var place = input
     console.log (place);
     var apiKey = "31e3da9a00a13c6735af3d6b9e899478"
-    var api = ("http://api.openweathermap.org/data/2.5/weather?q="+place+"&units=imperial"+"&appid"+apiKey);
-
+    var apiToday = ("http://api.openweathermap.org/data/2.5/weather?q="+place+"&units=imperial"+"&appid="+apiKey)
+    console.log (apiToday);
     /*and store it in localstorage for use for the history function*/
     /*localStorage.setItem("place",place)*/
 
@@ -46,7 +46,7 @@ $(document).ready(function () {
 
 
     /*API for Today's City, Temp, Icon, Etc.*/
-    $.getJSON("http://api.openweathermap.org/data/2.5/weather?q=dallas&units=imperial&appid=31e3da9a00a13c6735af3d6b9e899478",
+    $.getJSON(apiToday,
         function (data) {
             console.log(data);
 
@@ -70,7 +70,10 @@ $(document).ready(function () {
 
 
     /*Need an API for the 5 Day forecast*/
-    $.getJSON("http://api.openweathermap.org/data/2.5/forecast?q=dallas&units=imperial&appid=31e3da9a00a13c6735af3d6b9e899478",
+    var apiForecast = ("http://api.openweathermap.org/data/2.5/forecast?q="+place+"&units=imperial&appid="+apiKey);
+    console.log (apiForecast);
+    
+    $.getJSON(apiForecast,
         function (forecastData) {
             console.log(forecastData);
 
@@ -183,7 +186,7 @@ $(document).ready(function () {
         }
     );
 
-    /*Need Search functionality, and search needs to feed the orginial URL for location*/
+    
 
     /*Need History functionality*/
 });

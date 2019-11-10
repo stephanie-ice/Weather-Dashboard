@@ -1,5 +1,9 @@
-body {
-    background-color: burlywood;
-    color: red;
+h1 {
+    background-color: slategray;
+    color: white;
+    text-align: center;
+}
 
+#search-history {
+    background-color: aqua;
 }

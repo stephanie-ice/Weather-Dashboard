@@ -50,16 +50,16 @@ $(document).ready(function () {
                 $(".icon").attr("src", icon);
 
                 var city = (data.name);
-                $(".city").append(city);
+                $(".city").text(city);
 
                 var temp = (data.main.temp + " F");
-                $(".temp").append(temp);
+                $(".temp").text(temp);
 
                 var humidity = (data.main.humidity + "%");
-                $(".humidity").append(humidity);
+                $(".humidity").text(humidity);
 
                 var windSpeed = (data.wind.speed + " mph");
-                $(".windSpeed").append(windSpeed);
+                $(".windSpeed").text(windSpeed);
 
             });
 
@@ -75,7 +75,7 @@ $(document).ready(function () {
 
                 function day1(forecastData) {
                     var day1date = (forecastData.list[4].dt_txt)
-                    $(".day1date").append(day1date);
+                    $(".day1date").text(day1date);
                     console.log(day1date)
 
                     var day1icon = ("http://openweathermap.org/img/wn/" + forecastData.list[4].weather[0].icon + "@2x.png");
@@ -83,11 +83,11 @@ $(document).ready(function () {
                     console.log(day1icon);
 
                     var day1temp = (forecastData.list[4].main.temp)
-                    $(".day1temp").append("Temperature: " + day1temp + " F");
+                    $(".day1temp").text("Temperature: " + day1temp + " F");
                     console.log(day1temp);
 
                     var day1humidity = (forecastData.list[4].main.humidity)
-                    $(".day1humidity").append("Humidity: " + day1humidity + "%");
+                    $(".day1humidity").text("Humidity: " + day1humidity + "%");
                     console.log(day1humidity);
                 };
                 day1(forecastData)

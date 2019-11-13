@@ -34,18 +34,18 @@ $(document).ready(function () {
             place = place.replace(' ', '+');
             localStorage.setItem("city", place);
         };
-
+        
         var apiKey = "31e3da9a00a13c6735af3d6b9e899478"
-        var apiToday = ("http://api.openweathermap.org/data/2.5/weather?q=" + place + "&units=imperial" + "&appid=" + apiKey)
+        var apiToday = ("https://api.openweathermap.org/data/2.5/weather?q=" + place + "&units=imperial" + "&appid=" + apiKey)
         console.log(apiToday);
-
+        
 
         /*API for Today's City, Temp, Icon, Etc.*/
         $.getJSON(apiToday,
             function (data) {
                 console.log(data);
 
-                var icon = ("http://openweathermap.org/img/wn/" + data.weather[0].icon + "@2x.png");
+                var icon = ("https://openweathermap.org/img/wn/" + data.weather[0].icon + "@2x.png");
                 $(".icon").attr("src", icon);
 
                 var city = (data.name);
@@ -65,7 +65,7 @@ $(document).ready(function () {
 
 
         /*Need an API for the 5 Day forecast*/
-        var apiForecast = ("http://api.openweathermap.org/data/2.5/forecast?q=" + place + "&units=imperial&appid=" + apiKey);
+        var apiForecast = ("https://api.openweathermap.org/data/2.5/forecast?q=" + place + "&units=imperial&appid=" + apiKey);
         console.log(apiForecast);
 
         $.getJSON(apiForecast,
@@ -76,7 +76,7 @@ $(document).ready(function () {
                     var day1date = (forecastData.list[4].dt_txt)
                     $(".day1date").text(day1date);
 
-                    var day1icon = ("http://openweathermap.org/img/wn/" + forecastData.list[4].weather[0].icon + "@2x.png");
+                    var day1icon = ("https://openweathermap.org/img/wn/" + forecastData.list[4].weather[0].icon + "@2x.png");
                     $(".day1icon").attr("src", day1icon);
                   
                     var day1temp = (forecastData.list[4].main.temp)
@@ -92,7 +92,7 @@ $(document).ready(function () {
                     var day2date = (forecastData.list[12].dt_txt)
                     $(".day2date").text(day2date);
                     
-                    var day2icon = ("http://openweathermap.org/img/wn/" + forecastData.list[12].weather[0].icon + "@2x.png");
+                    var day2icon = ("https://openweathermap.org/img/wn/" + forecastData.list[12].weather[0].icon + "@2x.png");
                     $(".day2icon").attr("src", day2icon);
                     
                     var day2temp = (forecastData.list[12].main.temp)
@@ -108,7 +108,7 @@ $(document).ready(function () {
                     var day3date = (forecastData.list[20].dt_txt)
                     $(".day3date").text(day3date);
                     
-                    var day3icon = ("http://openweathermap.org/img/wn/" + forecastData.list[20].weather[0].icon + "@2x.png");
+                    var day3icon = ("https://openweathermap.org/img/wn/" + forecastData.list[20].weather[0].icon + "@2x.png");
                     $(".day3icon").attr("src", day3icon);
                     
                     var day3temp = (forecastData.list[20].main.temp)
@@ -124,7 +124,7 @@ $(document).ready(function () {
                     var day4date = (forecastData.list[28].dt_txt)
                     $(".day4date").text(day4date);
                   
-                    var day4icon = ("http://openweathermap.org/img/wn/" + forecastData.list[28].weather[0].icon + "@2x.png");
+                    var day4icon = ("https://openweathermap.org/img/wn/" + forecastData.list[28].weather[0].icon + "@2x.png");
                     $(".day4icon").attr("src", day4icon);
                    
                     var day4temp = (forecastData.list[28].main.temp)
@@ -140,7 +140,7 @@ $(document).ready(function () {
                     var day5date = (forecastData.list[36].dt_txt)
                     $(".day5date").text(day5date);
                     
-                    var day5icon = ("http://openweathermap.org/img/wn/" + forecastData.list[36].weather[0].icon + "@2x.png");
+                    var day5icon = ("https://openweathermap.org/img/wn/" + forecastData.list[36].weather[0].icon + "@2x.png");
                     $(".day5icon").attr("src", day5icon);
                    
                     var day5temp = (forecastData.list[36].main.temp)
@@ -161,7 +161,7 @@ $(document).ready(function () {
                 /*var for getting lon/lat of place from object data*/
                 var lon = (data.coord.lon)
                 var lat = (data.coord.lat)
-                var apiUV = ("http://api.openweathermap.org/data/2.5/uvi?appid=" + apiKey + "&lat=" + lat + "&lon=" + lon)
+                var apiUV = ("https://api.openweathermap.org/data/2.5/uvi?appid=" + apiKey + "&lat=" + lat + "&lon=" + lon)
                 console.log(apiUV);
 
                 $.getJSON(apiUV,

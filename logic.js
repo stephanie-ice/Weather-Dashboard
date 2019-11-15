@@ -19,14 +19,16 @@ $(document).ready(function () {
 
         var input = $("#search").val()
         getWeather(input)
-
+    
         /*dynamically create list element that hold search history*/
+        // this line iw where my problem begins. fix tomorow 11-12-19
         localStorage.setItem("input",input)
-        $("#search-history").append("<li>").val(input)
-        localStorage.clear(input);
+        console.log (input)
+        $("#search-history").append(`<li>${input}</li>`);
+        
         /*how do I clear the input field?*/
-        $("#search").empty()
-
+        // $("#search").val("");
+        document.getElementById("search").value = "";
     });
     /*Format the input by replacing spaces with + */
     function getWeather(place) {
